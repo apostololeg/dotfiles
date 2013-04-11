@@ -6,7 +6,7 @@ all:
 	done ; \
 	if [ ! $$CUSTOM_DOTFILES == "" ]; then \
 		mkdir custom && \
-		echo "===> fetch custom dotfiles..."
+		echo "===> fetch custom dotfiles..."; \
 		git clone $$CUSTOM_DOTFILES custom; \
 	fi;
 	@ echo "===> fetch vim bundles..."
@@ -18,7 +18,7 @@ all:
 	@ echo "===> setup 'commant-t' bundle..."
 	@ ruby -C `pwd`/.vim/bundle/command-t/ruby/command-t/ extconf.rb > /dev/null 2>&1
 	@ make -C `pwd`/.vim/bundle/command-t/ruby/command-t/ > /dev/null 2>&1
-	@ echo -e "\033[00;34m --- workflow setup complete! ---"
+	@ echo "\033[00;34m --- workflow setup complete! ---"
 
 vim:
 	@ echo ""

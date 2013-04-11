@@ -33,4 +33,4 @@ source ~/.zsh/system.zshrc
 source ~/.osx
 
 # корпоративные настройки
-source ~/.dotfiles/inside/.inside.zshrc
+source ~/.dotfiles/custom/.rc
