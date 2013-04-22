@@ -33,4 +33,5 @@ source ~/.zsh/system.zshrc
 source ~/.osx
 
 # корпоративные настройки
-source ~/.dotfiles/custom/.rc
+CUSTOM_DOTFILES_FOLDER=~/.dotfiles/custom;
+source $CUSTOM_DOTFILES_FOLDER/.rc
