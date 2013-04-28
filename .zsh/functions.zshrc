@@ -82,3 +82,6 @@ function multiscreen() {
 function skill() {
     screen -S $1 -X quit
 }
+
+# sshfs processes
+alias saux="ps aux | grep sshfs"
