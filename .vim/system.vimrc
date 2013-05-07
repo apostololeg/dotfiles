@@ -18,6 +18,8 @@ set t_kb=^V
 set noswapfile
 " запретить backup
 set nobackup
+" режим вставки / удобно вставлять скопированный текст из внешнего буфера
+set paste
 fixdel
 
 if has('windows')
