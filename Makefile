@@ -3,12 +3,14 @@ all:
 	@ echo ""
 	@ while [ -z "$$CUSTOM_DOTFILES" ]; do \
         read -r -p "Custom dotfiles (or press Enter): " CUSTOM_DOTFILES; \
-	done ; \
-	if [ ! $$CUSTOM_DOTFILES == "" ]; then \
-		mkdir custom && \
-		echo "===> fetch custom dotfiles..."; \
-		git clone $$CUSTOM_DOTFILES custom; \
-	fi;
+		if [ ! $$CUSTOM_DOTFILES == "" ]; then \
+			mkdir custom && \
+			echo "===> fetch custom dotfiles..."; \
+			git clone $$CUSTOM_DOTFILES custom; \
+		else \
+			break; \
+		fi; \
+	done ;
 	@ echo "===> fetch vim bundles..."
 	@ git clone git://github.com/gmarik/vundle.git `pwd`/.vim/bundle/vundle > /dev/null 2>&1
 	@ rm -rf ${HOME}/.vim
