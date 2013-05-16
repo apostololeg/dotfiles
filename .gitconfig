@@ -12,7 +12,7 @@
 	b = branch
     l = log --graph --pretty=format:'%C(110)%h%Creset %C(243)[%an]%Creset | %C(250)%s%Creset (%ad, %ar)%C(cyan)%d%Creset' --date=short -5
     log = log --graph --pretty=format:'%C(110)%h%Creset %C(242)[%an]%Creset | %C(250)%s%Creset (%ad)%C(cyan)%d%Creset' --date=local --all
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short -5
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,space-before-tab
 [merge]
