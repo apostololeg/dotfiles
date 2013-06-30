@@ -14,3 +14,6 @@ alias sscube="ssh sheff@178.20.152.67"
 
 # brew
 alias brup="brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cleanup && npm update"
+
+# sshfs processes
+alias saux="ps aux | grep sshfs"
