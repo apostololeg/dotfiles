@@ -1,5 +1,8 @@
+IAMIS=$(whoami);
+
+
 # make new repo from curent folder
-rerepo () {
+rerepo() {
     rm -rf .git
     git init
     git add .
@@ -9,14 +12,20 @@ rerepo () {
 
 
 # change origin of git repo
-reorigin () {
+reorigin() {
     git remote rm origin
     git remote add origin $1
 }
 
+# push to origin current branch with forcing history
+# [git push force]
+gpf() {
+    git push origin +`git rev-parse --abbrev-ref HEAD`
+}
+
 
 # распаковка из архива
-unpack () {
+unpack() {
     if [ -f $1 ] ; then
         case $1 in
             *.tar.bz2)   tar xjf $1 ;;
@@ -40,7 +49,7 @@ unpack () {
 
 
 # упаковка в архив
-pack () {
+pack() {
     if [ $2 ] ; then
         case $2 in
             tbz)        tar cjvf $1.tar.bz2 $1 ;;
@@ -91,7 +100,9 @@ SSM__params() {};
 
 ssmount() {
     SSM_repopath=$1;
-    SSM_volname=$1;
+
+    SSM_volname=$1
+    [ -z $2 ] || SSM_volname=$2;
 
     [ -z $DEFAULT_DEV ] || SSM_dev=$DEFAULT_DEV;
 
