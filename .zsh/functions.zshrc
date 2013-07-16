@@ -1,6 +1,5 @@
 IAMIS=$(whoami);
 
-
 # make new repo from curent folder
 rerepo() {
     rm -rf .git
@@ -23,6 +22,13 @@ gpf() {
     git push origin +`git rev-parse --abbrev-ref HEAD`
 }
 
+# узнаём дату коммита
+# [CommIt DATE]
+cidate() {
+    # указанный или последний коммит
+    STATE=$1 || HEAD;
+    git show $STATE | grep Date | awk -F':   ' '{print $2}'
+}
 
 # распаковка из архива
 unpack() {
