@@ -20,12 +20,12 @@ source ~/.zsh/system.zshrc
 
     # local
     #export PATH=~/bin/:$PATH
-    #export PATH=~/bin/:$PATH:$HOME/node_modules/.bin
-    #export NODE_PATH=$HOME/node_modules
+    export PATH=~/bin/:$PATH:./node_modules/.bin
+    export NODE_PATH=$HOME/node_modules
 
     # remote
-    export PATH=~/bin/:/usr/local/share/npm/bin:$PATH
-    export NODE_PATH=/usr/local/lib/node_modules
+    #export PATH=~/bin/:/usr/local/share/npm/bin:$PATH
+    #export NODE_PATH=/usr/local/lib/node_modules
 
 #source ~/.profile
 
