@@ -1,8 +1,11 @@
 ##### ALIASES #####
 alias vgc="vi .git/config"
-alias gconf=vgc
-alias gitconfig=vgc
-
+alias gconf="vgc"
+alias gitconfig="vgc"
+alias brconfig="gbc"
+alias pushforce="git push origin +HEAD"
+alias pushf="pushforce"
+alias pf="pushforce"
 
 #### FUNCTIONS ####
 # change origin of git repo
@@ -41,7 +44,6 @@ gbc() {
     # merge = refs/heads/master
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
-alias brconfig="gbc";
 
 
 # узнаём дату коммита
