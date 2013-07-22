@@ -1,35 +1,6 @@
 IAMIS=$(whoami);
 
-# make new repo from curent folder
-rerepo() {
-    rm -rf .git
-    git init
-    git add .
-    git ci -m "init"
-    git remote add origin $1 && git push -u origin master
-}
-
-
-# change origin of git repo
-reorigin() {
-    git remote rm origin
-    git remote add origin $1
-}
-
-# push to origin current branch with forcing history
-# [git push force]
-gpf() {
-    git push origin +`git rev-parse --abbrev-ref HEAD`
-}
-
-# узнаём дату коммита
-# [CommIt DATE]
-cidate() {
-    # указанный или последний коммит
-    STATE=$1 || HEAD;
-    git show $STATE | grep Date | awk -F':   ' '{print $2}'
-}
-
+# ARCHIVES
 # распаковка из архива
 unpack() {
     if [ -f $1 ] ; then
@@ -53,7 +24,6 @@ unpack() {
     fi
 }
 
-
 # упаковка в архив
 pack() {
     if [ $2 ] ; then
@@ -73,6 +43,7 @@ pack() {
 }
 
 
+# SHELL
 # рекурсивное удаение по маске
 rrmm() {
     find . -name $1 -print0 | xargs -0 rm -rf
@@ -85,6 +56,7 @@ f() {
 }
 
 
+# SCREEN
 # мультискрин: multiscreen name user
 multiscreen() {
     echo "multiuser on" >> multiscreen.conf
@@ -133,3 +105,40 @@ ssmount() {
         -o cache=no \
         -o noappledouble
 }
+
+# GIT
+# change origin of git repo
+function reorigin () {
+    git remote rm origin
+    git remote add origin $1
+}
+
+# make new repo from curent folder
+function rerepo () {
+    rm -rf .git
+    git init
+    git add .
+    git ci -m "init"
+    git remote add origin $1 && git push -u origin master
+}
+
+# ребейзим все коммиты текущей ветки по базовой ветке (dev)
+# [Git Rebase Branch]
+function grb() {
+    BASE_BRANCH=dev;
+    CURRENT_BRANCH=HEAD;
+
+    [ -z $1 ] && BASE_BRANCH=$1;
+    [ -z $2 ] && CURRENT_BRANCH=$2;
+
+    git rebase -i `git merge-base $BASE_BRANCH $CURRENT_BRANCH`
+}
+
+# узнаём дату коммита
+# [CommIt DATE]
+function cidate() {
+    # указанный или последний коммит
+    STATE=$1 || HEAD;
+    git show $STATE | grep Date | awk -F':   ' '{print $2}'
+}
+
