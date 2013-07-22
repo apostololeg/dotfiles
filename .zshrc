@@ -17,6 +17,8 @@ source ~/.zsh/completions.zshrc
 source ~/.zsh/binds.zshrc
 # хаки и прочее
 source ~/.zsh/system.zshrc
+# Git
+source ~/.gitrc
 
     # local
     #export PATH=~/bin/:$PATH

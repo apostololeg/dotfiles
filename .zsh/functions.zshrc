@@ -1,5 +1,6 @@
 IAMIS=$(whoami);
 
+
 # ARCHIVES
 # распаковка из архива
 unpack() {
@@ -105,40 +106,3 @@ ssmount() {
         -o cache=no \
         -o noappledouble
 }
-
-# GIT
-# change origin of git repo
-function reorigin () {
-    git remote rm origin
-    git remote add origin $1
-}
-
-# make new repo from curent folder
-function rerepo () {
-    rm -rf .git
-    git init
-    git add .
-    git ci -m "init"
-    git remote add origin $1 && git push -u origin master
-}
-
-# ребейзим все коммиты текущей ветки по базовой ветке (dev)
-# [Git Rebase Branch]
-function grb() {
-    BASE_BRANCH=dev;
-    CURRENT_BRANCH=HEAD;
-
-    [ -z $1 ] && BASE_BRANCH=$1;
-    [ -z $2 ] && CURRENT_BRANCH=$2;
-
-    git rebase -i `git merge-base $BASE_BRANCH $CURRENT_BRANCH`
-}
-
-# узнаём дату коммита
-# [CommIt DATE]
-function cidate() {
-    # указанный или последний коммит
-    STATE=$1 || HEAD;
-    git show $STATE | grep Date | awk -F':   ' '{print $2}'
-}
-
