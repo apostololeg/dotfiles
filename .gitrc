@@ -34,7 +34,7 @@ gbc() {
     # merge = refs/heads/master
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
-alias brconfig = gbc;
+alias brconfig="gbc";
 
 
 # узнаём дату коммита

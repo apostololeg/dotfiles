@@ -1,4 +1,5 @@
 IAMIS=$(whoami);
+HIDE_OUTPUT=/dev/null 2>&1
 
 
 # ARCHIVES
