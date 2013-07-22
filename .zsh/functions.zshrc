@@ -1,11 +1,7 @@
-# check for trash: console.log(), alert()...
-function trash () {
-    svn diff | grep 'console.'
-    svn diff | grep 'alert'
-}
+IAMIS=$(whoami);
 
 # make new repo from curent folder
-function rerepo () {
+rerepo() {
     rm -rf .git
     git init
     git add .
@@ -13,14 +9,29 @@ function rerepo () {
     git remote add origin $1 && git push -u origin master
 }
 
+
 # change origin of git repo
-function reorigin () {
+reorigin() {
     git remote rm origin
     git remote add origin $1
 }
 
+# push to origin current branch with forcing history
+# [git push force]
+gpf() {
+    git push origin +`git rev-parse --abbrev-ref HEAD`
+}
+
+# узнаём дату коммита
+# [CommIt DATE]
+cidate() {
+    # указанный или последний коммит
+    STATE=$1 || HEAD;
+    git show $STATE | grep Date | awk -F':   ' '{print $2}'
+}
+
 # распаковка из архива
-unpack () {
+unpack() {
     if [ -f $1 ] ; then
         case $1 in
             *.tar.bz2)   tar xjf $1 ;;
@@ -42,8 +53,9 @@ unpack () {
     fi
 }
 
+
 # упаковка в архив
-pack () {
+pack() {
     if [ $2 ] ; then
         case $2 in
             tbz)        tar cjvf $1.tar.bz2 $1 ;;
@@ -60,28 +72,64 @@ pack () {
     fi
 }
 
+
 # рекурсивное удаение по маске
-function rrmm() {
+rrmm() {
     find . -name $1 -print0 | xargs -0 rm -rf
 }
 
+
 # поиск по содержимому файлов: f "*.js" "click"
-function f() {
+f() {
     find . -type f -name "$1" -and -not -name "*.svn*" -exec grep -i -l "$2" {} \;
 }
 
+
 # мультискрин: multiscreen name user
-function multiscreen() {
+multiscreen() {
     echo "multiuser on" >> multiscreen.conf
     echo "acladd $2" >> multiscreen.conf
     screen -c multiscreen.conf -S $1
     rm multiscreen.conf
 }
 
+
 # убиваем конкретный screen
-function skill() {
+skill() {
     screen -S $1 -X quit
 }
 
-# sshfs processes
-alias saux="ps aux | grep sshfs"
+
+# подключение удаленного диска
+SSM__mount_root=~/Sites/_mounted;
+SSM__params() {};
+
+ssmount() {
+    SSM_repopath=$1;
+
+    SSM_volname=$1
+    [ -z $2 ] || SSM_volname=$2;
+
+    [ -z $DEFAULT_DEV ] || SSM_dev=$DEFAULT_DEV;
+
+    # генерим парамерты
+    SSM_params $1 $2;
+
+    # проверяем начилие всех необходимых настроек
+    [[ -z $SSM_dev && -z $SSM_repopath && -z $SSM_volname ]] && return;
+
+    # локально создаём папку, в которую будем маунтить
+    SSM_local_path=$SSM__mount_root/$SSM_volname;
+    [ -d $SSM_local_path ] || mkdir $SSM_local_path;
+
+    # логируем составленную комманду
+    echo "\n\tsshfs -C $SSM_dev:/home/$IAMIS/$SSM_repopath $SSM_local_path\n";
+
+    sshfs -C $SSM_dev:/home/$IAMIS/$SSM_repopath $SSM_local_path \
+        -o volname=$SSM_volname \
+        -o transform_symlinks \
+        -o follow_symlinks \
+        -o reconnect \
+        -o cache=no \
+        -o noappledouble
+}
