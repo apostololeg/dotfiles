@@ -1,3 +1,10 @@
+##### ALIASES #####
+alias vgc="vi .git/config"
+alias gconf=vgc
+alias gitconfig=vgc
+
+
+#### FUNCTIONS ####
 # change origin of git repo
 chor () {
     git remote rm origin
