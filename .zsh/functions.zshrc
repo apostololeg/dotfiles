@@ -1,6 +1,19 @@
 IAMIS=$(whoami);
 HIDE_OUTPUT=/dev/null 2>&1
 
+# push to origin current branch with forcing history
+# [git push force]
+gpf() {
+    git push origin +`git rev-parse --abbrev-ref HEAD`
+}
+
+# узнаём дату коммита
+# [CommIt DATE]
+cidate() {
+    # указанный или последний коммит
+    STATE=$1 || HEAD;
+    git show $STATE | grep Date | awk -F':   ' '{print $2}'
+}
 
 # ARCHIVES
 # распаковка из архива
