@@ -1,19 +1,5 @@
-
-# make new repo from curent folder
-rerepo() {
-    rm -rf .git
-    git init
-    git add .
-    git ci -m "init"
-    git remote add origin $1 && git push -u origin master
-}
-
-
-# change origin of git repo
-reorigin() {
-    git remote rm origin
-    git remote add origin $1
-}
+IAMIS=$(whoami);
+HIDE_OUTPUT=/dev/null 2>&1
 
 # push to origin current branch with forcing history
 # [git push force]
@@ -29,6 +15,7 @@ cidate() {
     git show $STATE | grep Date | awk -F':   ' '{print $2}'
 }
 
+# ARCHIVES
 # распаковка из архива
 unpack() {
     if [ -f $1 ] ; then
@@ -52,7 +39,6 @@ unpack() {
     fi
 }
 
-
 # упаковка в архив
 pack() {
     if [ $2 ] ; then
@@ -72,6 +58,7 @@ pack() {
 }
 
 
+# SHELL
 # рекурсивное удаение по маске
 rrmm() {
     find . -name $1 -print0 | xargs -0 rm -rf
@@ -84,6 +71,7 @@ f() {
 }
 
 
+# SCREEN
 # мультискрин: multiscreen name user
 multiscreen() {
     echo "multiuser on" >> multiscreen.conf

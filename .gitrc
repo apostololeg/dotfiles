@@ -1,0 +1,55 @@
+##### ALIASES #####
+alias vgc="vi .git/config"
+alias gconf="vgc"
+alias gitconfig="vgc"
+alias brconfig="gbc"
+alias pushforce="git push origin +HEAD"
+alias pushf="pushforce"
+alias pf="pushforce"
+
+#### FUNCTIONS ####
+# change origin of git repo
+chor () {
+    git remote rm origin
+    git remote add origin $1
+}
+
+
+# ребейзим все коммиты текущей ветки по базовой ветке (dev)
+# [Git Rebase Branch]
+grb() {
+    BASE_BRANCH=dev;
+    CURRENT_BRANCH=HEAD;
+
+    [ -z $1 ] && BASE_BRANCH=$1;
+    [ -z $2 ] && CURRENT_BRANCH=$2;
+
+    git rebase -i `git merge-base $BASE_BRANCH $CURRENT_BRANCH`
+}
+
+
+# конфиг по умолчанию для новой ветки
+# @param1 – base branch / [master] | dev | v1 | ...
+# [Git Branch Config]
+gbc() {
+    GIT_current_branch=`git rev-parse --abbrev-ref HEAD`;
+
+    GIT_base_branch=master;
+    [ -z $1 ] || GIT_base_branch=$1;
+
+    # rebase = true
+    git config branch.$GIT_current_branch.rebase true
+    # remote = origin
+    git config branch.$GIT_current_branch.remote origin
+    # merge = refs/heads/master
+    git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
+}
+
+
+# узнаём дату коммита
+# [CommIt DATE]
+cidate() {
+    # указанный или последний коммит
+    STATE=$1 || HEAD;
+    git show $STATE | grep Date | awk -F':   ' '{print $2}'
+}
