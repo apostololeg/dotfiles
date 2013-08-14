@@ -22,7 +22,7 @@ source ~/.gitrc
 
     # local
     #export PATH=~/bin/:$PATH
-    export PATH=~/bin/:$PATH:./node_modules/.bin
+    export PATH=/usr/local/bin:$PATH
     export NODE_PATH=$HOME/node_modules
 
     # remote
