@@ -20,17 +20,7 @@ source ~/.zsh/system.zshrc
 # Git
 source ~/.gitrc
 
-    # local
-    #export PATH=~/bin/:$PATH
-    export PATH=/usr/local/bin:$PATH
-    export NODE_PATH=$HOME/node_modules
-
-    # remote
-    #export PATH=~/bin/:/usr/local/share/npm/bin:$PATH
-    #export NODE_PATH=/usr/local/lib/node_modules
-
-#source ~/.profile
-
+source ~/.profile
 # настройки для osx
 source ~/.osx
 
