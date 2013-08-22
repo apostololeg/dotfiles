@@ -10,7 +10,7 @@ all:
 	@ make -C `pwd`/.vim/bundle/command-t/ruby/command-t/ > /dev/null 2>&1
 	@ echo "\033[00;34m --- workflow setup complete! ---"
 
-customs:
+custom_dotfiles:
 	@ while [ -z "$$CUSTOM_DOTFILES" ]; do \
 		echo "\n"; \
         read -r -p " Custom dotfiles repository (or press Enter): " CUSTOM_DOTFILES_REPO; \
