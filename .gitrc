@@ -2,10 +2,14 @@
 alias vgc="vi .git/config"
 alias gconf="vgc"
 alias gitconfig="vgc"
-alias brconfig="gbc"
-alias pushforce="git push origin +HEAD"
+alias branchconfig="gbc"
+alias pl="git pull"
+alias ph="git push"
+alias pushforce="ph origin +HEAD"
 alias pushf="pushforce"
 alias pf="pushforce"
+alias pt="ph origin HEAD --tags"
+
 
 #### FUNCTIONS ####
 # change origin of git repo
@@ -14,10 +18,14 @@ chor () {
     git remote add origin $1
 }
 
+# ребейзим последний N коммитов
+gr() {
+    git rebase -i HEAD~$1
+}
 
 # ребейзим все коммиты текущей ветки по базовой ветке (dev)
-# [Git Rebase Branch]
-grb() {
+# [Git Branch Rebase]
+gbr() {
     BASE_BRANCH=dev;
     CURRENT_BRANCH=HEAD;
 
@@ -26,7 +34,6 @@ grb() {
 
     git rebase -i `git merge-base $BASE_BRANCH $CURRENT_BRANCH`
 }
-
 
 # конфиг по умолчанию для новой ветки
 # @param1 – base branch / [master] | dev | v1 | ...
@@ -44,7 +51,6 @@ gbc() {
     # merge = refs/heads/master
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
-
 
 # узнаём дату коммита
 # [CommIt DATE]
