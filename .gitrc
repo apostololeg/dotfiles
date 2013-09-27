@@ -9,6 +9,7 @@ alias pushforce="ph origin +HEAD"
 alias pushf="pushforce"
 alias pf="pushforce"
 alias pt="ph origin HEAD --tags"
+alias chp="git cherry-pick"
 
 
 #### FUNCTIONS ####
