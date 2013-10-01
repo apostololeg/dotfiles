@@ -1,18 +1,22 @@
-##### ALIASES #####
+alias qgit="git"
 alias vgc="vi .git/config"
 alias gconf="vgc"
 alias gitconfig="vgc"
 alias branchconfig="gbc"
 alias pl="git pull"
-alias ph="git push"
-alias pushforce="ph origin +HEAD"
-alias pushf="pushforce"
-alias pf="pushforce"
-alias pt="ph origin HEAD --tags"
 alias chp="git cherry-pick"
 
 
-#### FUNCTIONS ####
+#git push
+ph () {
+    PF_REMOTE=origin;   [ -z $1 ] || PF_REMOTE=$1;
+    git push $PF_REMOTE;
+}
+alias pushforce="ph --force"
+alias pushf="pushforce"
+alias pf="pushforce"
+alias pt="ph --tags"
+
 # change origin of git repo
 chor () {
     git remote rm origin
