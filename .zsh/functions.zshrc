@@ -1,19 +1,6 @@
 IAMIS=$(whoami);
 HIDE_OUTPUT=/dev/null 2>&1
 
-
-# HOOK: when somth wrong
-shit_hook() {
-    "$@" || afplay ~/Desktop/shit.wav
-}
-#[[ -z $preexec_functions ]] && preexec_functions=()
-#preexec_functions=($precmd_functions shit_hook)
-
-# подключаем модуль
-#autoload -U add-zsh-hook
-# добавляем хук
-#add-zsh-hook preexec shit_hook
-
 # push to origin current branch with forcing history
 # [git push force]
 gpf() {
