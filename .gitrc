@@ -5,6 +5,7 @@ alias gitconfig="vgc"
 alias branchconfig="gbc"
 alias pl="git pull"
 alias chp="git cherry-pick"
+alias remote="git remote -v"
 
 
 #git push
