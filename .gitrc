@@ -1,8 +1,14 @@
+# misspell's
 alias qgit="git"
-alias vgc="vi .git/config"
-alias gconf="vgc"
-alias gitconfig="vgc"
+
+# common 
+alias gconf="vi .git/config"
+alias gitconfig="gconf"
 alias branchconfig="gbc"
+
+# base
+alias st="git st"
+alias df="git diff"
 alias pl="git pull"
 alias chp="git cherry-pick"
 alias remote="git remote -v"

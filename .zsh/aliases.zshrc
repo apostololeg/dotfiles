@@ -3,8 +3,6 @@ alias df="df -h"
 alias vi="vim"
 
 # version control
-alias df="git diff > diff"
-alias sd="svn diff > diff"
 alias svnrevertal="svn st -q | awk '{print $2;}' | xargs svn revert"
 
 # ssh
