@@ -10,6 +10,7 @@ alias branchconfig="gbc"
 alias st="git st"
 alias df="git diff"
 alias pl="git pull"
+alias gl="git log"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
 
