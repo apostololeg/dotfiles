@@ -1,4 +1,3 @@
-IAMIS=$(whoami);
 HIDE_OUTPUT=/dev/null 2>&1
 
 # push to origin current branch with forcing history
@@ -93,6 +92,7 @@ SSM__params() {};
 
 ssmount() {
     SSM_repopath=$1;
+    SSM_home=/home/`whoami`/;
 
     SSM_volname=$1
     [ -z $2 ] || SSM_volname=$2;
@@ -110,9 +110,9 @@ ssmount() {
     [ -d $SSM_local_path ] || mkdir $SSM_local_path;
 
     # логируем составленную комманду
-    echo "\n\tsshfs -C $SSM_dev:/home/$IAMIS/$SSM_repopath $SSM_local_path\n";
+    echo "\n\tsshfs -C ${SSM_dev}:${SSM_home}${SSM_repopath} $SSM_local_path\n";
 
-    sshfs -C $SSM_dev:/home/$IAMIS/$SSM_repopath $SSM_local_path \
+    sshfs -C ${SSM_dev}:${SSM_home}${SSM_repopath} $SSM_local_path \
         -o volname=$SSM_volname \
         -o transform_symlinks \
         -o follow_symlinks \

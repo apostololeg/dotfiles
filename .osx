@@ -3,7 +3,7 @@ if (type defaults > $HIDE_OUTPUT) then;
     # частота курсора
     defaults write NSGlobalDomain KeyRepeat -int 0
 
-    # реиновый скролл
+    # резиновый скролл
     # defaults write -g NSScrollViewRubberbanding -int 0
 
     # отключить проверку при открытии *.dmg

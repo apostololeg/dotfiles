@@ -19,10 +19,13 @@ source ~/.zsh/binds.zshrc
 source ~/.zsh/system.zshrc
 # Git
 source ~/.gitrc
-
+# настройки для конкретной машинки
 source ~/.profile
 # настройки для osx
 source ~/.osx
+
+# подключаем autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # подключаем все кастомные настройки
 [ -d ~/.dotfiles/customs ] &&
