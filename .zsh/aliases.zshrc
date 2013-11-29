@@ -1,5 +1,5 @@
-alias ll="ls -la --color=tty"
-alias l="ls --color=tty"
+alias l="ls -la --color=tty"
+alias ll="ls --color=tty"
 alias df="df -h"
 alias vi="vim"
 

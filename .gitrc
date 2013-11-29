@@ -1,7 +1,7 @@
 # misspell's
 alias qgit="git"
 
-# common 
+# common
 alias gconf="vi .git/config"
 alias gitconfig="gconf"
 alias branchconfig="gbc"
@@ -10,16 +10,28 @@ alias branchconfig="gbc"
 alias st="git st"
 alias df="git diff"
 alias pl="git pull"
-alias gl="git log"
+alias sh="git show"
+alias shf="git show --name-only"
+alias camend="git commit --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
 
+# git log
+gl () {
+    local params;
+    [ -z $1 ] && params="" || params="-"$1;
+
+    git log $params;
+}
 
 #git push
 ph () {
-    PF_REMOTE=origin;   [ -z $1 ] || PF_REMOTE=$1;
-    git push $PF_REMOTE;
+    local remote;
+    [ -z $1 ] && remote=origin || remote=$1;
+
+    git push $remote;
 }
+
 alias pushforce="ph --force"
 alias pushf="pushforce"
 alias pf="pushforce"
