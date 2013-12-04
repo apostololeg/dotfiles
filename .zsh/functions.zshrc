@@ -14,6 +14,15 @@ cidate() {
     git show $STATE | grep Date | awk -F':   ' '{print $2}'
 }
 
+# обновление brew
+alias brup="brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cleanup && npm update"
+
+# очистка формулы и неиспользуемых зависимостей
+brcl() {
+    [ -z $1 ] ||
+        brew rm $1 && brew rm $(join <(brew leaves) <(brew deps $1))
+}
+
 # ARCHIVES
 # распаковка из архива
 unpack() {
@@ -66,9 +75,8 @@ rrmm() {
 
 # поиск по содержимому файлов: f "*.js" "click"
 f() {
-    find . -type f -name "$1" -and -not -name "*.svn*" -exec grep -i -l "$2" {} \;
+    find . -type f -name $1 | xargs grep -l $2
 }
-
 
 # SCREEN
 # мультискрин: multiscreen name user

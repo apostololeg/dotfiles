@@ -12,7 +12,8 @@ alias df="git diff"
 alias pl="git pull"
 alias sh="git show"
 alias shf="git show --name-only"
-alias camend="git commit --amend"
+alias camend="git ci --amend"
+alias caamend="git commit --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
 
@@ -51,13 +52,13 @@ gr() {
 # ребейзим все коммиты текущей ветки по базовой ветке (dev)
 # [Git Branch Rebase]
 gbr() {
-    BASE_BRANCH=dev;
-    CURRENT_BRANCH=HEAD;
+    local base;
+    local current;
 
-    [ -z $1 ] && BASE_BRANCH=$1;
-    [ -z $2 ] && CURRENT_BRANCH=$2;
+    [ -z $1 ] && base=$1 || base=dev;
+    [ -z $2 ] && current=$2 || current=HEAD;
 
-    git rebase -i `git merge-base $BASE_BRANCH $CURRENT_BRANCH`
+    git rebase -i `git merge-base $base $current`
 }
 
 # конфиг по умолчанию для новой ветки
