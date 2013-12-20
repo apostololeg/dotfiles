@@ -11,3 +11,6 @@ alias ssh="ssh -A"
 
 # sshfs processes
 alias saux="ps aux | grep sshfs"
+
+# screen
+alias sc="screen -dRR"
