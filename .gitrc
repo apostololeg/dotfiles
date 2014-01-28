@@ -12,13 +12,12 @@ alias df="git diff"
 alias pl="git pull"
 alias sh="git show"
 alias shf="git show --name-only"
-alias camend="git ci --amend"
-alias caamend="git commit --amend"
+alias camend="git commit --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
 
 # git log
-gl () {
+gl() {
     local params;
     [ -z $1 ] && params="" || params="-"$1;
 
@@ -26,7 +25,7 @@ gl () {
 }
 
 #git push
-ph () {
+ph() {
     local remote;
     [ -z $1 ] && remote=origin || remote=$1;
 
@@ -39,7 +38,7 @@ alias pf="pushforce"
 alias pt="ph --tags"
 
 # change origin of git repo
-chor () {
+chor() {
     git remote rm origin
     git remote add origin $1
 }
