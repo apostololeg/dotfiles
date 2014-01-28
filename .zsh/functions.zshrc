@@ -96,7 +96,7 @@ skill() {
 
 # подключение удаленного диска
 SSM__mount_root=~/Sites/_mounted;
-SSM__params() {};
+SSM_params() {};
 
 ssmount() {
     SSM_repopath=$1;
