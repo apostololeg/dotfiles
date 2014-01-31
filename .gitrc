@@ -12,7 +12,7 @@ alias df="git diff"
 alias pl="git pull"
 alias sh="git show"
 alias shf="git show --name-only"
-alias camend="git commit --amend"
+alias camend="git commit -a --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
 
