@@ -1,6 +1,6 @@
 [user]
-    name = Oleg Apostol
-    email = apostol@yandex-team.ru
+    name = name
+    email = email
 [color]
     diff = auto
     status = auto
