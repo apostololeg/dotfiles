@@ -77,6 +77,13 @@ gbc() {
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
 
+# тянем пуллреквест в ветку pr-<номер>
+getpr() {
+    TPR_branch=pr-$1;
+    git fetch origin refs/pull/$1/head:$TPR_branch
+    git co $TPR_branch;
+}
+
 # узнаём дату коммита
 # [CommIt DATE]
 cidate() {

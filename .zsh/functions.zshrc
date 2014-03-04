@@ -126,5 +126,13 @@ ssmount() {
         -o follow_symlinks \
         -o reconnect \
         -o cache=no \
-        -o noappledouble
+        -o compression=yes \
+        -o Ciphers=arcfour \
+        -o noappledouble \
+        -o no_check_root \
+        -o hard_remove \
+        -o sync_read \
+        -o idmap=user \
+        -o workaround=nodelaysrv \
+        -s
 }
