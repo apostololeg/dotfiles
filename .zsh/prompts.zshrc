@@ -2,7 +2,7 @@
 if [ $SSH_CONNECTION ]; then
     PS1=%{$GREEN%}"`hostname -s`  "%{$NO_COLOR%}%
 else
-    PS1=%{$BLUE%}"☮ "%{$NO_COLOR%}%
+    PS1=%{$BLUE%}"> "%{$NO_COLOR%}%
 fi
 
 # справа
