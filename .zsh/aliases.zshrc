@@ -14,3 +14,6 @@ alias saux="ps aux | grep sshfs"
 
 # screen
 alias sc="screen -dRR"
+
+# OS info
+alias linuxinfo="lsb_release -a"
