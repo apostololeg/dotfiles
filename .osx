@@ -3,10 +3,22 @@ if (type defaults > $HIDE_OUTPUT) then;
     # частота курсора
     defaults write NSGlobalDomain KeyRepeat -int 0
 
+    # разрешить keyrepeat при зажатой клавише
+    defaults write -g ApplePressAndHoldEnabled -bool false
+
     # резиновый скролл
     # defaults write -g NSScrollViewRubberbanding -int 0
 
     # отключить проверку при открытии *.dmg
     defaults write com.apple.frameworks.diskimages skip-verify TRUE
+
+    # отключение анимации для  mission Control
+    defaults write com.apple.dock expose-animation-duration -float 0
+
+    # отключение задержки перед скрытием Dock
+    defaults write com.apple.dock autohide-delay -float 0
+
+    # скорость анимации скрытия Dock
+    defaults write com.apple.dock autohide-time-modifier -float 0.3
 
 fi;
