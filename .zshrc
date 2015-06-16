@@ -25,7 +25,7 @@ source ~/.profile
 source ~/.osx
 
 # подключаем autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[[ -s brew && -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # подключаем все кастомные настройки
 [ -d ~/.dotfiles/customs ] &&

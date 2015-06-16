@@ -15,6 +15,8 @@ alias shf="git show --name-only"
 alias camend="git commit -a --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
+alias cpop="git reset HEAD^"
+alias cpoph="cpop --hard"
 
 # git log
 gl() {
