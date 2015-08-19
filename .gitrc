@@ -3,10 +3,10 @@ alias qgit="git"
 
 # common
 alias gconf="vi .git/config"
-alias gitconfig="gconf"
-alias branchconfig="gbc"
 
 # base
+alias gb="git b"
+alias gco="git co"
 alias st="git st"
 alias df="git diff"
 alias pl="git pull"
@@ -15,8 +15,11 @@ alias shf="git show --name-only"
 alias camend="git commit -a --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
-alias cpop="git reset HEAD^"
-alias cpoph="cpop --hard"
+alias gpop="git reset HEAD^"
+
+gc() {
+    git ci -m $1
+}
 
 # git log
 gl() {
@@ -26,7 +29,7 @@ gl() {
     git log $params;
 }
 
-#git push
+# git push
 ph() {
     local remote;
     [ -z $1 ] && remote=origin || remote=$1;
@@ -64,6 +67,7 @@ gbr() {
 
 # конфиг по умолчанию для новой ветки
 # @param1 – base branch / [master] | dev | v1 | ...
+# @param2 - remote
 # [Git Branch Config]
 gbc() {
     GIT_current_branch=`git rev-parse --abbrev-ref HEAD`;
@@ -71,10 +75,13 @@ gbc() {
     GIT_base_branch=master;
     [ -z $1 ] || GIT_base_branch=$1;
 
+    GIT_remote=origin;
+    [ -z $2 ] || GIT_remote=$2;
+
     # rebase = true
     git config branch.$GIT_current_branch.rebase true
     # remote = origin
-    git config branch.$GIT_current_branch.remote origin
+    git config branch.$GIT_current_branch.remote $GIT_remote
     # merge = refs/heads/master
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
