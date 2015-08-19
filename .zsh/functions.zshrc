@@ -14,9 +14,6 @@ cidate() {
     git show $STATE | grep Date | awk -F':   ' '{print $2}'
 }
 
-# обновление brew
-alias brup="brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cleanup && npm update"
-
 # очистка формулы и неиспользуемых зависимостей
 brcl() {
     [ -z $1 ] ||

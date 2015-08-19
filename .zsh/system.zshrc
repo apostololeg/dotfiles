@@ -11,6 +11,7 @@ export GIT_EDITOR=vim
 export EDITOR=vim
 export PAGER=less
 export BLOCKSIZE=K
+export PATH=/usr/local/sbin:$PATH
 
 # хак для ssh-ключей под скрином
 if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != "/tmp/ssh-agent-$USER-screen" ]
