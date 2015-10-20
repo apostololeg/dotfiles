@@ -1,4 +1,5 @@
 autoload -U compinit colors zmv
+compinit -u
 export TERM=xterm-color
 
 

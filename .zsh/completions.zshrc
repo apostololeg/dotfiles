@@ -1,5 +1,3 @@
-compinit
-
 # кэширование
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
