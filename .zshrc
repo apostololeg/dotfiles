@@ -32,3 +32,6 @@ source ~/.osx
     for CUSTOM_FOLDER in ~/.dotfiles/customs/*; do
         source $CUSTOM_FOLDER.zshrc;
     done
+
+# gulp autocompletion
+eval "$(gulp --completion=zsh)"
