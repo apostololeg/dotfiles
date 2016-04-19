@@ -17,6 +17,10 @@ alias camend="git commit -a --amend"
 alias chp="git cherry-pick"
 alias remote="git remote -v"
 alias gpop="git reset HEAD^"
+alias pushforce="ph --force"
+alias pushf="pushforce"
+alias pf="pushforce"
+alias pt="ph --tags"
 
 gc() {
     git ci -m $1
@@ -38,11 +42,6 @@ ph() {
     git push $remote;
 }
 
-alias pushforce="ph --force"
-alias pushf="pushforce"
-alias pf="pushforce"
-alias pt="ph --tags"
-
 # change origin of git repo
 chor() {
     git remote rm origin
@@ -52,6 +51,11 @@ chor() {
 # ребейзим последний N коммитов
 gr() {
     git rebase -i HEAD~$1
+}
+
+# ребейзимся от master`а
+grm() {
+    gbc master base && pl && gbc;
 }
 
 # ребейзим все коммиты текущей ветки по базовой ветке (dev)
