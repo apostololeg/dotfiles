@@ -4,33 +4,31 @@ module.exports = {
   config: {
     // default font size in pixels for all tabs
     fontSize: 12,
-
     // font family with optional fallbacks
     fontFamily: 'Source Code Pro Medium, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
-
     // terminal cursor background color (hex)
-    cursorColor: '#F81CE5',
-
+    cursorColor: '#b3bcc1',
     // color of the text
     foregroundColor: '#fff',
-
     // terminal background color
     backgroundColor: backgroundColor,
-
     // border color (window, tabs)
     borderColor: '#444',
-
     // custom css to embed in the main window
     css: `
-        .active_1gcgehd:before {border-color: ${backgroundColor}}
+        .active_1gcgehd:before {
+            border-color: ${backgroundColor}
+        }
     `,
-
     // custom css to embed in the terminal window
-    termCSS: '',
-
+    termCSS: `
+        .cursor-node {
+            height: 3px !important;
+            margin-top: .8em;
+        }
+    `,
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
-
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
     colors: [
@@ -52,7 +50,6 @@ module.exports = {
       '#ffffff'
     ]
   },
-
   // a list of plugins to fetch and install from npm
   // format: [@org/]project[#version]
   // examples:
@@ -60,7 +57,6 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [],
-
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
