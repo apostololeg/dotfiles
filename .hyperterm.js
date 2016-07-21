@@ -19,6 +19,12 @@ module.exports = {
         .active_1gcgehd:before {
             border-color: ${backgroundColor}
         }
+        .header_header {
+            background-color: rgb(27, 27, 27);
+        }
+        .tab_active {
+            background-color: ${backgroundColor}
+        }
     `,
     // custom css to embed in the terminal window
     termCSS: `
