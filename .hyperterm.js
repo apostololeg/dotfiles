@@ -5,7 +5,7 @@ module.exports = {
     // default font size in pixels for all tabs
     fontSize: 12,
     // font family with optional fallbacks
-    fontFamily: 'Source Code Pro Medium, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
     // terminal cursor background color (hex)
     cursorColor: '#b3bcc1',
     // color of the text
@@ -20,7 +20,7 @@ module.exports = {
             border-color: ${backgroundColor}
         }
         .header_header {
-            background-color: rgb(27, 27, 27);
+            background-color: rgb(27, 27, 27) !important;
         }
         .tab_active {
             background-color: ${backgroundColor}
@@ -62,7 +62,8 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+  ],
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
