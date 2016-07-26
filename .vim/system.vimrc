@@ -20,6 +20,9 @@ set noswapfile
 set nobackup
 " режим вставки / удобно вставлять скопированный текст из внешнего буфера
 set paste
+" отображать номера строк
+set number
+
 fixdel
 
 if has('windows')
