@@ -5,20 +5,18 @@ syntax on
 " фон
 set background=dark
 " цветовая схема
-colorscheme solarized
+"colorscheme solarized
 "set number
 "set numberwidth=3
 set laststatus=0
 set showtabline=2
 " выделять строку под курсором
-set cursorline
+"set cursorline
 " выключить фолдинг
 set nofoldenable
 " выключить перенос строк
 set nowrap
-
-" подсветка bemhtml как javascript
-au BufNewFile,BufRead *.bemhtml set filetype=javascript
+" подсветка синтаксиса zsh
 au BufNewFile,BufRead *.zshrc set filetype=zsh
 
 " Indent Guides

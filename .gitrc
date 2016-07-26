@@ -55,7 +55,7 @@ gr() {
 
 # ребейзимся от master`а
 grm() {
-    gbc master base && pl && gbc;
+    git rebase base/master
 }
 
 # ребейзим все коммиты текущей ветки по базовой ветке (dev)
