@@ -2,7 +2,6 @@ autoload -U compinit colors zmv
 compinit -u
 export TERM=xterm-color
 
-
 #load colors
 autoload colors && colors
 for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
@@ -10,3 +9,4 @@ for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
     eval BOLD_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done
 eval NO_COLOR='$reset_color'
+DARKGRAY='\e[90m'

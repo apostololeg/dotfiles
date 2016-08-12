@@ -5,3 +5,4 @@ sftp-config.json
 *.sublime-project
 *.sublime-workspace
 deployment-config.json
+.DS_Store
