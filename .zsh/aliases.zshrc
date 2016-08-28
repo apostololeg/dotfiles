@@ -16,7 +16,7 @@ alias saux="ps aux | grep sshfs"
 alias sc="screen -dRR"
 
 # brew
-alias brup="sudo brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cleanup && npm update"
+alias brup="brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cleanup && npm update"
 
 # OS info
 alias linuxinfo="lsb_release -a"
