@@ -10,6 +10,7 @@ alias sh="git show"
 alias shf="git show --name-only"
 alias gh="git hist"
 alias gl1="gl 1"
+alias gcl="git clean -d -f"
 # edits
 alias gad="git add ."
 alias gco="git co"
