@@ -22,10 +22,10 @@ get_rprompt() {
     echo -e "%{$DARKGRAY%}%~%{$NO_COLOR%}"
 }
 
-PROMPT_ARROW="%{$BLUE%}❯ %{$NO_COLOR%}"
+PROMPT_ICON="%{$NO_COLOR%}▲ ~ "
 
 # слева
-PROMPT='$(get_hostname)$(get_git_prompt)$PROMPT_ARROW'
+PROMPT='$(get_hostname)$(get_git_prompt)$PROMPT_ICON'
 # справа
 RPROMPT='$(get_rprompt)'
 
