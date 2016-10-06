@@ -1,4 +1,6 @@
 var backgroundColor = '#262626';
+var activeColor = 'darkcyan';
+var highlightColor = '#152929';
 
 module.exports = {
   config: {
@@ -16,14 +18,39 @@ module.exports = {
     borderColor: '#444',
     // custom css to embed in the main window
     css: `
-        .active_1gcgehd:before {
-            border-color: ${backgroundColor}
+        .borderShim_1bzgot8 {
+            border-bottom-width: 0;
         }
         .header_header {
-            background-color: rgb(27, 27, 27) !important;
+            background-color: ${backgroundColor} !important;
         }
-        .tab_active {
-            background-color: ${backgroundColor}
+        .tab_tab {
+          border: 0;
+          transition: background-color .2s ease-out;
+          overflow: hidden;
+        }
+        .tab_tab:after {
+          content: '';
+          position: absolute;
+          top: -3px;
+          height: 3px;
+          width: 100%;
+          background-color: ${activeColor};
+          transition: transform .2s ease-out, box-shadow .2s ease-out;
+        }
+        .tabs_list:hover .tab_active:not(:hover):after {
+          transform: translateY(0px);
+          box-shadow: none;
+        }
+        .tab_tab:hover:after {
+          transform: translateY(1px);
+        }
+        .tab_active:after, .tab_active:hover:after {
+          transform: translateY(3px);
+          box-shadow: 0 5px 10px ${activeColor};
+        }
+        .tabs_list:not(:hover) .tab_tab:after {
+          transition-duration: 2s;
         }
     `,
     // custom css to embed in the terminal window
