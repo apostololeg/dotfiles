@@ -4,6 +4,9 @@ var highlightColor = '#152929';
 
 module.exports = {
   config: {
+    shell: '/bin/zsh',
+    bell: false,
+    copyOnSelect: true,
     // default font size in pixels for all tabs
     fontSize: 12,
     // font family with optional fallbacks

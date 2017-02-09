@@ -36,5 +36,8 @@ source ~/.osx
 # gulp autocompletion
 eval "$(gulp --completion=zsh)"
 
-export NVM_DIR="/home/apostol/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# NVM
+alias NVM_DIR=$HOME/.nvm
+source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+# load NVM
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 

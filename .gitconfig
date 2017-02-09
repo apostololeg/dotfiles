@@ -19,7 +19,6 @@
 	excludesfile = ~/.gitignore
 [merge]
     log = true
-    ff = false
 [branch]
     autosetuprebase = always
 [push]
