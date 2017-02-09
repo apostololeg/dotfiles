@@ -92,6 +92,17 @@ gbc() {
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
 
+# обновляем ветку
+gbup() {
+    local branch=`git rev-parse --abbrev-ref HEAD`
+
+    gco master && \
+        gb -D $branch && \
+        rm -rf .git/refs/remotes/origin/$branch && \
+        git fetch origin && \
+        gco $branch
+}
+
 # тянем пуллреквест в ветку pr-<номер>
 getpr() {
     TPR_branch=pr-$1;
