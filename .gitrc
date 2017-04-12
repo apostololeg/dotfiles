@@ -11,31 +11,38 @@ alias shn="git show --name-only"
 alias gh="git hist"
 alias gl1="gl 1"
 alias gcl="git clean -d -f"
+
 # edits
 alias gad="git add ."
 alias gco="git co"
 alias chp="git cherry-pick"
 alias gpop="git reset HEAD^"
+
 # commit
 alias gc="git ci -m"
 alias camend="git commit -a --amend"
+
 # rebase
 alias grm="git rebase base/master"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
 alias gra="git rebase --abort"
+
 # ребейзим последний N коммитов
 gr() {
     git rebase -i HEAD~$1
 }
+
 # configs
 alias gconf="vi .git/config"
 alias remote="git remote -v"
+
 # push
 alias pushforce="ph --force"
 alias pushf="pushforce"
 alias pf="pushforce"
 alias pt="ph --tags"
+alias ppb="ph && ph base"
 
 # git log
 gl() {
