@@ -40,4 +40,4 @@ eval "$(gulp --completion=zsh)"
 alias NVM_DIR=$HOME/.nvm
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 # load NVM
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
