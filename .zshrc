@@ -17,6 +17,8 @@ source ~/.zsh/completions.zshrc
 source ~/.zsh/binds.zshrc
 # хаки и прочее
 source ~/.zsh/system.zshrc
+# npm
+source ~/.npmrc
 # Git
 source ~/.gitrc
 # настройки для конкретной машинки
@@ -32,9 +34,6 @@ source ~/.osx
     for CUSTOM_FOLDER in ~/.dotfiles/customs/*; do
         source $CUSTOM_FOLDER.zshrc;
     done
-
-# gulp autocompletion
-eval "$(gulp --completion=zsh)"
 
 # NVM
 alias NVM_DIR=$HOME/.nvm
