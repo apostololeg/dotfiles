@@ -33,9 +33,11 @@ source ~/.osx
     done
 
 # NVM
-export NVM_DIR=$HOME/.nvm
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
-# load NVM
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-# use default node
-nvm use default
+if [ -s ~/.zsh-nvm ]; then
+    export NVM_DIR=$HOME/.nvm
+    source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+    # load NVM
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    # use default node
+    nvm use default
+fi
