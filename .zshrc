@@ -1,6 +1,3 @@
-# открываем последний screen
-#screen -x
-
 # aliases
 source ~/.zsh/aliases.zshrc
 # functions
@@ -36,7 +33,9 @@ source ~/.osx
     done
 
 # NVM
-alias NVM_DIR=$HOME/.nvm
+export NVM_DIR=$HOME/.nvm
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 # load NVM
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# use default node
+nvm use default

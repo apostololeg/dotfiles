@@ -1,8 +1,8 @@
 if (type defaults > $HIDE_OUTPUT) then;
 
     # частота курсора
-    defaults write NSGlobalDomain KeyRepeat -int 1                                                                                                                                                 ~
-    defaults write NSGlobalDomain InitialKeyRepeat -int 10
+    # defaults write NSGlobalDomain KeyRepeat -int 1                                                                                                                                                 ~
+    # defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
     # разрешить keyrepeat при зажатой клавише
     defaults write -g ApplePressAndHoldEnabled -bool false
