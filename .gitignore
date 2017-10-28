@@ -1,4 +1,4 @@
-.vim/bundle
+antigen.zsh
 .zsh/cache
 customs
 sftp-config.json

@@ -1,0 +1,12 @@
+alias npmls="npm ls -depth=0"
+
+if [ -s ~/.zsh-nvm ]; then
+    export NVM_DIR=$HOME/.nvm
+    source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+    # load NVM
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    # use default node
+    nvm use default
+fi
+
+export PATH=$(npm bin):$PATH

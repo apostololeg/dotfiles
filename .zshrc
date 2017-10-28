@@ -14,8 +14,10 @@ source ~/.zsh/completions.zshrc
 source ~/.zsh/binds.zshrc
 # хаки и прочее
 source ~/.zsh/system.zshrc
+# antigen
+source ~/.antigenrc
 # npm
-source ~/.npmrc
+source ~/.nvmrc
 # Git
 source ~/.gitrc
 # настройки для конкретной машинки
@@ -31,13 +33,3 @@ source ~/.osx
     for CUSTOM_FOLDER in ~/.dotfiles/customs/*; do
         source $CUSTOM_FOLDER.zshrc;
     done
-
-# NVM
-if [ -s ~/.zsh-nvm ]; then
-    export NVM_DIR=$HOME/.nvm
-    source ~/.zsh-nvm/zsh-nvm.plugin.zsh
-    # load NVM
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    # use default node
-    nvm use default
-fi
