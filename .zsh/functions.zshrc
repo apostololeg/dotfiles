@@ -1,24 +1,11 @@
 HIDE_OUTPUT=/dev/null 2>&1
 
-# push to origin current branch with forcing history
-# [git push force]
-gpf() {
-    git push origin +`git rev-parse --abbrev-ref HEAD`
-}
-
-# узнаём дату коммита
-# [CommIt DATE]
-cidate() {
-    # указанный или последний коммит
-    STATE=$1 || HEAD;
-    git show $STATE | grep Date | awk -F':   ' '{print $2}'
-}
-
 # очистка формулы и неиспользуемых зависимостей
 brcl() {
     [ -z $1 ] ||
         brew rm $1 && brew rm $(join <(brew leaves) <(brew deps $1))
 }
+
 
 # ARCHIVES
 # распаковка из архива
@@ -69,7 +56,6 @@ rrmm() {
     find . -name $1 -print0 | xargs -0 rm -rf
 }
 
-
 # поиск по содержимому файлов: f "*.js" "click"
 f() {
     find . -type f -name $1 | xargs grep -l $2
@@ -84,10 +70,14 @@ multiscreen() {
     rm multiscreen.conf
 }
 
-
 # убиваем конкретный screen
 skill() {
     screen -S $1 -X quit
+}
+
+
+pkillall() {
+    sudo kill -9 $(ps aux | grep -e $1 | awk '{ print $2 }')
 }
 
 

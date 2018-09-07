@@ -8,6 +8,7 @@ antigen:
 	else \
 		echo ">>> get antigen..."; \
 		curl -L git.io/antigen > antigen.zsh; \
+		ln -s ${HOME}/antigen.zsh ../; \
 		echo "\033[00;34m --- Antigen installed"; \
 	fi;
 

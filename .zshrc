@@ -24,6 +24,8 @@ source ~/.gitrc
 source ~/.profile
 # настройки для osx
 source ~/.osx
+# ограничение использования CPU для некоторых процессов
+source ~/.cpulimits
 
 # подключаем autojump
 [[ -s brew && -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh

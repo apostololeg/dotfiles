@@ -1,0 +1,8 @@
+# limit CPU usage
+if ! pgrep -f cputhrottle > /dev/null && command -v cputhrottle > /dev/null; then
+    echo "Limiting CPU usage..."
+    sudo cputhrottle `pgrep com.docker.hyperkit` 50 &
+    sudo cputhrottle `pgrep node` 50 &
+    sudo cputhrottle `pgrep WindowServer` 50 &
+    sudo cputhrottle `pgrep kernel_task` 50 &
+fi

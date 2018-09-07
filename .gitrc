@@ -3,6 +3,7 @@ alias qgit="git"
 
 # status
 alias gb="git b"
+alias gt="git tag"
 alias st="git st"
 alias df="git diff"
 alias pl="git pull"
@@ -23,13 +24,14 @@ alias gc="git ci -m"
 alias camend="git commit -a --amend"
 
 # rebase
-alias grm="git rebase base/master"
+alias gr="git rebase"
+alias grm="git rebase origin/master"
+alias grd="git rebase origin/dev"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
 alias gra="git rebase --abort"
-
 # ребейзим последний N коммитов
-gr() {
+gri() {
     git rebase -i HEAD~$1
 }
 

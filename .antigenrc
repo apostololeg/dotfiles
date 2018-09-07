@@ -1,6 +1,6 @@
-source antigen.zsh
+#source ~/antigen.zsh
 
-export NVM_LAZY_LOAD=true
-antigen bundle lukechilds/zsh-nvm
+# export NVM_LAZY_LOAD=true
+# antigen bundle lukechilds/zsh-nvm
 
-antigen apply
+# antigen apply
