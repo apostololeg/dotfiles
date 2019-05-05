@@ -14,6 +14,7 @@ antigen:
 
 links:
 	@ find `pwd` -maxdepth 1 -mindepth 1 -name '.*' -not -name '.git' -exec ln -s -f {} ${HOME} \;
+	@ ln -s -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 	@ echo "\033[00;34m --- Links to dotfiles has been created"
 
 custom_dotfiles:
