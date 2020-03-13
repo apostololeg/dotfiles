@@ -35,3 +35,5 @@ source ~/.cpulimits
     for CUSTOM_FOLDER in ~/.dotfiles/customs/*; do
         source $CUSTOM_FOLDER.zshrc;
     done
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
