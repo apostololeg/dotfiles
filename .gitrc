@@ -17,11 +17,13 @@ alias gcl="git clean -d -f"
 alias gad="git add ."
 alias gco="git co"
 alias chp="git cherry-pick"
+alias chpc="chp --continue"
 alias gpop="git reset HEAD^"
 
 # commit
 alias gc="git ci -m"
 alias camend="git commit -a --amend"
+alias camendnv="camend --no-verify"
 
 # rebase
 alias gr="git rebase"
@@ -43,6 +45,7 @@ alias remote="git remote -v"
 alias pushforce="ph --force"
 alias pushf="pushforce"
 alias pf="pushforce"
+alias pfnv="pf --no-verify"
 alias pt="ph --tags"
 alias ppb="ph && ph base"
 
@@ -125,4 +128,14 @@ cidate() {
     # указанный или последний коммит
     STATE=$1 || HEAD;
     git show $STATE | grep Date | awk -F':   ' '{print $2}'
+}
+
+# номер коммита
+ccount() {
+    git rev-list --count $1..HEAD
+}
+
+# интерактивный ребейз начиная с коммита <revision>
+grto() {
+    gri $((`ccount $1` + 1))
 }
