@@ -18,10 +18,12 @@ alias gad="git add ."
 alias gco="git co"
 alias chp="git cherry-pick"
 alias chpc="chp --continue"
+alias chpcnv="chp --continue --no-verify"
 alias gpop="git reset HEAD^"
 
 # commit
 alias gc="git ci -m"
+alias gcn="git ci --no-verify -m"
 alias camend="git commit -a --amend"
 alias camendnv="camend --no-verify"
 
@@ -135,7 +137,14 @@ ccount() {
     git rev-list --count $1..HEAD
 }
 
-# интерактивный ребейз начиная с коммита <revision>
-grto() {
+# интерактивный ребейз начиная с коммита <$1:revision>
+# grto e932619
+grtor() {
     gri $((`ccount $1` + 1))
+}
+
+# интерактивный ребейз начиная с N-1 коммита, из истории изменения <$1:file>
+# grtof src/components/UI/Input/Input.styl
+grtof() {
+    grtor `git log --pretty=format:'%h' -n 2 --reverse $1`
 }
