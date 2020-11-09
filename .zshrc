@@ -15,7 +15,7 @@ source ~/.zsh/binds.zshrc
 # хаки и прочее
 source ~/.zsh/system.zshrc
 # antigen
-source ~/.antigenrc
+# source ~/.antigenrc
 # npm
 source ~/.nvmrc
 # Git
@@ -37,3 +37,4 @@ source ~/.cpulimits
     done
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+CASE_SENSITIVE=true
