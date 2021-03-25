@@ -3,6 +3,9 @@ alias ll="ls"
 alias df="df -h"
 alias vi="vim"
 
+# cli
+alias rcp="rsync -av --progress"
+
 # version control
 alias svnrevertal="svn st -q | awk '{print $2;}' | xargs svn revert"
 
@@ -18,8 +21,9 @@ alias sc="screen -dRR"
 # brew
 alias brup="brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cleanup && npm update"
 
-# OS info
+# linux
 alias linuxinfo="lsb_release -a"
+alias open="xdg-open"
 
 # pacman aliases
 alias pac="sudo pacman"
