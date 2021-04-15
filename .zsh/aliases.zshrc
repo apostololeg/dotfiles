@@ -24,6 +24,7 @@ alias brup="brew up && brew outdated | cut -f 1 | xargs brew upgrade && brew cle
 # linux
 alias linuxinfo="lsb_release -a"
 alias open="xdg-open"
+alias optimizepng="pngquant --strip -f --skip-if-larger -v"
 
 # pacman aliases
 alias pac="sudo pacman"
