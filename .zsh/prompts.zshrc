@@ -18,16 +18,14 @@ get_hostname() {
     [ $SSH_CONNECTION ] && echo -e "%{$DARKGRAY%}$(hostname -s) "
 }
 
-get_rprompt() {
+get_cwd() {
     echo -e "%{$DARKGRAY%}%~%{$NO_COLOR%}"
 }
 
 PROMPT_ICON="%{$NO_COLOR%}▲ "
 
-# слева
-PROMPT='$(get_hostname)$(get_git_prompt)$PROMPT_ICON'
-# справа
-RPROMPT='$(get_rprompt)'
+NEWLINE=$'\n'
+PROMPT='$(get_hostname)$(get_cwd)${NEWLINE}$(get_git_prompt)$PROMPT_ICON'
 
 function zle-line-init zle-keymap-select {
     zle reset-prompt
