@@ -61,6 +61,10 @@ f() {
     find . -type f -name $1 | xargs grep -l $2
 }
 
+pidonport() {
+    lsof -i :$1
+}
+
 # SCREEN
 # мультискрин: multiscreen name user
 multiscreen() {
