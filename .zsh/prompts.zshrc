@@ -15,7 +15,7 @@ get_git_prompt() {
 }
 
 get_hostname() {
-    [ $SSH_CONNECTION ] && echo -e "%{$DARKGRAY%}$(hostname -s) "
+    [ $SSH_CONNECTION ] && echo -e "%{$CYAN%}$(hostname -s) "
 }
 
 get_cwd() {

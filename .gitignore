@@ -1,5 +1,6 @@
 antigen.zsh
 .zsh/cache
+.vim/.netrwhist
 customs
 sftp-config.json
 *.sublime-project
