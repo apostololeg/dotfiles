@@ -73,7 +73,7 @@ chor() {
     git remote add origin $1
 }
 
-# ребейзим все коммиты текущей ветки по базовой ветке (dev)
+# rebase all commits of the current branch on the base branch (dev)
 # [Git Branch Rebase]
 gbr() {
     local base;
@@ -85,7 +85,7 @@ gbr() {
     git rebase -i `git merge-base $base $current`
 }
 
-# конфиг по умолчанию для новой ветки
+# default config for the new branch
 # @param1 – base branch / [master] | dev | v1 | ...
 # @param2 - remote
 # [Git Branch Config]
@@ -106,7 +106,7 @@ gbc() {
     git config branch.$GIT_current_branch.merge refs/heads/$GIT_base_branch
 }
 
-# обновляем ветку
+# branch update
 gbup() {
     local branch=`git rev-parse --abbrev-ref HEAD`
 
@@ -117,34 +117,38 @@ gbup() {
         gco $branch
 }
 
-# тянем пуллреквест в ветку pr-<номер>
+# pull pullrequest to branch pr-<number>
 getpr() {
     TPR_branch=pr-$1;
     git fetch origin refs/pull/$1/head:$TPR_branch
     git co $TPR_branch;
 }
 
-# узнаём дату коммита
-# [CommIt DATE]
+# commit date
 cidate() {
     # указанный или последний коммит
     STATE=$1 || HEAD;
     git show $STATE | grep Date | awk -F':   ' '{print $2}'
 }
 
-# номер коммита
+# commit number
 ccount() {
     git rev-list --count $1..HEAD
 }
 
-# интерактивный ребейз начиная с коммита <$1:revision>
+# interactive rebase starting from commit <$1:revision>
 # grto e932619
 grtor() {
     gri $((`ccount $1` + 1))
 }
 
-# интерактивный ребейз начиная с N-1 коммита, из истории изменения <$1:file>
+# interactive rebase starting at N-1 commits, from the <$1:file> change history
 # grtof src/components/UI/Input/Input.styl
 grtof() {
     grtor `git log --pretty=format:'%h' -n 2 --reverse $1`
+}
+
+# diff history between two branches
+ghdiff() {
+    git log --oneline --no-decorate --reverse $1..$2
 }
