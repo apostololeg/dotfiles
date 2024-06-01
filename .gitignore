@@ -3,7 +3,7 @@ antigen.zsh
 .vim/.netrwhist
 customs
 sftp-config.json
-*.sublime-project
-*.sublime-workspace
+.vscode
+*.code-workspace
 deployment-config.json
 .DS_Store

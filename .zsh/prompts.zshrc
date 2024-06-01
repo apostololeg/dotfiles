@@ -24,8 +24,7 @@ get_cwd() {
 
 PROMPT_ICON="%{$NO_COLOR%}▲ "
 
-NEWLINE=$'\n'
-PROMPT='$(get_hostname)$(get_cwd)${NEWLINE}$(get_git_prompt)$PROMPT_ICON'
+PROMPT='$(get_hostname)$(get_cwd) $(get_git_prompt)$PROMPT_ICON'
 
 function zle-line-init zle-keymap-select {
     zle reset-prompt
