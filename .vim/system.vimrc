@@ -22,6 +22,8 @@ set nobackup
 set paste
 " отображать номера строк
 set number
+" Backspace delete symbols from the right
+nnoremap <BS> x
 
 fixdel
 
