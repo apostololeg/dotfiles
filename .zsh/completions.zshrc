@@ -45,3 +45,4 @@ setopt no_hist_beep
 setopt hist_ignore_dups
 # пытаться исправить всё, что набрано
 setopt correct_all
+
