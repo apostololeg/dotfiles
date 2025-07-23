@@ -1,6 +1,7 @@
 antigen.zsh
 .zsh/cache
 .vim/.netrwhist
+.npmrc
 customs
 sftp-config.json
 .vscode
