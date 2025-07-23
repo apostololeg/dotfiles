@@ -24,11 +24,7 @@
 [branch]
     autosetuprebase = always
 [push]
+    autoSetupRemote = true
     default = current
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    required = true
-    process = git-lfs filter-process
 [url "git@github.com:"]
 	insteadOf = https://github.com/
