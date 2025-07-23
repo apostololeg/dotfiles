@@ -42,3 +42,34 @@ CASE_SENSITIVE=true
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/oleh/prj/OH/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/oleh/prj/OH/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/oleh/prj/OH/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/oleh/prj/OH/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/Users/oleh/prj/OH/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/Users/oleh/prj/OH/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+
+# Created by `pipx` on 2024-10-07 17:12:28
+export PATH="$PATH:/Users/oleh/.local/bin"
+
+# Android SDK
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
