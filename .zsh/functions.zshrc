@@ -84,6 +84,45 @@ pkillall() {
     sudo kill -9 $(ps aux | grep -e $1 | awk '{ print $2 }')
 }
 
+# Enhanced pkill that can handle ports too
+# Usage: pkill process_name  OR  pkill :3000  OR  pkill port:3000
+pkill() {
+    if [[ $1 =~ ^:?([0-9]+)$ ]] || [[ $1 =~ ^port:([0-9]+)$ ]]; then
+        # Extract port number
+        local port
+        if [[ $1 =~ ^:([0-9]+)$ ]]; then
+            port=${match[1]}
+        elif [[ $1 =~ ^port:([0-9]+)$ ]]; then
+            port=${match[1]}
+        else
+            port=${1#:}
+        fi
+        
+        echo "🔍 Looking for processes on port $port..."
+        local pids=$(lsof -ti:$port 2>/dev/null)
+        
+        if [[ -z $pids ]]; then
+            echo "❌ No processes found on port $port"
+            return 1
+        else
+            echo "⚡ Found processes: $pids"
+            echo "💀 Killing processes on port $port..."
+            echo $pids | xargs kill
+            if [[ $? -eq 0 ]]; then
+                echo "✅ Successfully killed processes on port $port"
+            else
+                echo "🔥 Normal kill failed, trying force kill..."
+                echo $pids | xargs kill -9
+                echo "✅ Force killed processes on port $port"
+            fi
+        fi
+    else
+        # Use regular pkill for process names
+        echo "🔍 Killing processes matching: $1"
+        command pkill "$@"
+    fi
+}
+
 
 # подключение удаленного диска
 SSM__mount_root=~/Sites/_mounted;

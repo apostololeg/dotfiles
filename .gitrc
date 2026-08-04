@@ -23,6 +23,7 @@ alias gpop="git reset HEAD^"
 
 # commit
 alias gc="git ci -m"
+alias gcm="git commit"
 alias gcn="git ci --no-verify -m"
 alias camend="git commit -a --amend"
 alias camendnv="camend --no-verify"

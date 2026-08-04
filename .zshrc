@@ -17,7 +17,7 @@ source ~/.zsh/system.zshrc
 # antigen
 # source ~/.antigenrc
 # npm
-source ~/.nvmrc
+source ~/.nvm-config.zsh
 # Git
 source ~/.gitrc
 # настройки для конкретной машинки
@@ -36,31 +36,32 @@ source ~/.cpulimits
         source $CUSTOM_FOLDER.zshrc;
     done
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 CASE_SENSITIVE=true
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVM is loaded in ~/.nvm-config.zsh, no need to load here
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/oleh/prj/OH/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/oleh/prj/OH/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/oleh/prj/OH/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/oleh/prj/OH/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/Users/oleh/prj/OH/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/oleh/prj/OH/miniforge3/etc/profile.d/mamba.sh"
-fi
+# >>> conda initialize >>> (DISABLED - directory doesn't exist)
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/oleh/prj/OH/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/oleh/prj/OH/miniforge3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/oleh/prj/OH/miniforge3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/oleh/prj/OH/miniforge3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# 
+# if [ -f "/Users/oleh/prj/OH/miniforge3/etc/profile.d/mamba.sh" ]; then
+#     . "/Users/oleh/prj/OH/miniforge3/etc/profile.d/mamba.sh"
+# fi
 # <<< conda initialize <<<
 
 
@@ -73,3 +74,21 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/oleh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oleh/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/oleh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oleh/google-cloud-sdk/completion.zsh.inc'; fi
+# Add Google Cloud SDK to PATH
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# bun completions
+[ -s "/Users/oleh_1/.bun/_bun" ] && source "/Users/oleh_1/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2026-06-08 07:35:19
+export PATH="$PATH:/Users/oleh_1/.local/bin"
